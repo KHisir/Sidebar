@@ -1,0 +1,41 @@
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.15.0/css/all.css"
+  integrity="sha384-OLYO0LymqQ+uHXELyx93kblK5YIS3B2ZfLGBmsJaUyor7CpMTBsahDHByqSuWW+q"
+  crossorigin="anonymous"
+/>
+
+<link
+  href="https://fonts.googleapis.com/css?family=Quicksand:400,700"
+  rel="stylesheet"
+/>
+
+<!-- https://bootstrapious.com/p/bootstrap-sidebar#google_vignette -->
+
+<div class="cc-sidebar">
+  <!-- Sidebar  -->
+  <div class="cc-sidebar-wrapper" [ngClass]="{'left': position === 'left', 'right' : position === 'right'}" [class.active]="showSidebar === true">
+    <div>
+      <ng-content select="[sidebarContent]"></ng-content>
+      <button (click)="showSidebar = false">Close</button>
+    </div>
+
+    <!-- settings -->
+    <div>
+      <button (click)="showSettings = !showSettings">
+        <i class="fas fa-cog"></i>
+      </button>
+    </div>
+    <div class="cc-sidebar-settings" [class.active]="showSettings === true">
+
+    </div>
+  </div>
+
+  <!-- Page Content  -->
+  <div class="cc-page-wrapper" [ngClass]="{'left': position === 'left', 'right' : position === 'right'}" [class.fixed-sidebar]="fixed === true" [class.active]="showSidebar === true">
+    <button (click)="showSidebar = !showSidebar">Toggle Sidebar</button>
+    <ng-content select="[pageContent]"></ng-content>
+  </div>
+</div>
+
+<div class="cc-sidebar-overlay" [class.active]="showSidebar === true && fixed === false && showOverlay === true"></div>
