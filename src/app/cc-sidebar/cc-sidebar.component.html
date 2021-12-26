@@ -27,7 +27,48 @@
       </button>
     </div>
     <div class="cc-sidebar-settings" [class.active]="showSettings === true">
+      <!-- Fixed: -->
+      <div class="cc-checkbox">
+        <input [(ngModel)]="fixed" class="inp-cbx" [attr.id]="'fixed-' + componentId" type="checkbox"
+          style="display: none;" /><label class="cbx" [attr.for]="'fixed-' + componentId"><span><svg width="12px"
+              height="9px" viewbox="0 0 12 9">
+              <polyline points="1 5 4 8 11 1"></polyline>
+            </svg></span><span>&nbsp;Fixed</span></label>
+      </div>
 
+      <!-- Overlay: -->
+      <div class="cc-checkbox" [class.cc-disabled]="fixed === true">
+        <input [(ngModel)]="showOverlay" class="inp-cbx" [attr.id]="'overlay-' + componentId" type="checkbox"
+          style="display: none;" /><label class="cbx" [attr.for]="'overlay-' + componentId"><span><svg width="12px"
+              height="9px" viewbox="0 0 12 9">
+              <polyline points="1 5 4 8 11 1"></polyline>
+            </svg></span><span>&nbsp;Overlay</span></label>
+      </div>
+
+      <!-- Position: -->
+      <div class="cc-radio-wrapper">
+        <div>
+          <label [attr.for]="'pleft-' + componentId" class="cc-radio">
+            <input type="radio" [attr.id]="'pleft-' + componentId"
+              (change)="position = 'left'" [checked]="position === 'left'" style="display: none;" />
+            <span class="label"></span>Left
+          </label>
+        </div>
+
+        <div>
+          <label [attr.for]="'pright-' + componentId" class="cc-radio">
+            <input type="radio" [attr.id]="'pright-' + componentId"
+              (change)="position = 'right'" [checked]="position === 'right'" style="display: none;" />
+            <span class="label"></span>Right
+          </label>
+        </div>
+      </div>
+
+      <!-- Width: -->
+      <div>
+        <!-- <input type="range" min="0" max="23" [value]="dt.hour()" (input)="hoursOnChanged($event)"> -->
+        <input type="range" class="cc-range">
+      </div>
     </div>
   </div>
 
@@ -36,6 +77,8 @@
     <button (click)="showSidebar = !showSidebar">Toggle Sidebar</button>
     <ng-content select="[pageContent]"></ng-content>
   </div>
+
+  <div class="cc-sidebar-overlay" [class.active]="showSidebar === true && fixed === false && showOverlay === true"></div>
+
 </div>
 
-<div class="cc-sidebar-overlay" [class.active]="showSidebar === true && fixed === false && showOverlay === true"></div>
