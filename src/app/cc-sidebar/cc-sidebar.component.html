@@ -46,7 +46,7 @@
       </div>
 
       <!-- Position: -->
-      <div class="cc-radio-wrapper">
+      <div class="cc-radio-container">
         <div>
           <label [attr.for]="'pleft-' + componentId" class="cc-radio">
             <input type="radio" [attr.id]="'pleft-' + componentId"
@@ -65,9 +65,8 @@
       </div>
 
       <!-- Width: -->
-      <div>
-        <!-- <input type="range" min="0" max="23" [value]="dt.hour()" (input)="hoursOnChanged($event)"> -->
-        <input type="range" class="cc-range">
+      <div class="cc-range-container">
+        <input type="range" class="cc-range" [min]="sidebarMinWidth" max="{{sidebarMaxWidth}}" [(ngModel)]="sidebarWidth" (change)="sidebarWidthChanged()">
       </div>
     </div>
     <div class="cc-sidebar-inside-overlay" [class.active]="showSettings === true"></div>
