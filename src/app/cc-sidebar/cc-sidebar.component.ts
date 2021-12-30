@@ -7,8 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CcSidebarComponent implements OnInit {
   @Input() showSidebar: boolean = false;
-  @Input() showOverlay: boolean = true; // used only when fixed is false!
-  @Input() fixed: boolean = false;
+  @Input() showOverlay: boolean = false; // used only when fixed is false!
+  @Input() fixed: boolean = true;
   @Input() position: string = 'left'; // left or right
 
   showSettings: boolean = false;
