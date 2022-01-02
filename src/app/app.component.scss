@@ -1,1 +1,11 @@
+* {
+  font-family: quicksand, open sans, roboto, open sans, nunito, sans-serif;
+}
 
+#myPage {
+  width: 100%;
+  padding: 40px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
