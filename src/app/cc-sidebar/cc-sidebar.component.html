@@ -10,7 +10,7 @@
   [class.active]="visible === true">
 
   <div class="cc-sidebar-header" [hidden]="showCloseButton === false">
-    <button class="cc-closeButton">
+    <button class="cc-closeButton" (click)="close()" title="Close">
       <i class="fas fa-times"></i>
     </button>
   </div>
@@ -21,8 +21,9 @@
 
   <!-- settings -->
   <div class="cc-sidebar-config-button" *ngIf="configureable === true">
-    <button (click)="showConfig = !showConfig">
-      <i class="fas fa-cog"></i>
+    <button (click)="showConfig = !showConfig" title="Configuration">
+      <i class="fas fa-cog" *ngIf="showConfig === false"></i>
+      <i class="fas fa-times" *ngIf="showConfig === true"></i>
     </button>
   </div>
   <div class="cc-sidebar-config" [class.active]="showConfig === true">
