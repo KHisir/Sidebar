@@ -1,15 +1,15 @@
 <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet" />
 
-<app-cc-sidebar [(visible)]="showSidebar" [pageElem]="page">
+<app-cc-sidebar [(visible)]="showSidebarLeft" [pageElem]="page">
   <h3>Left Sidebar</h3>
 </app-cc-sidebar>
 
-<app-cc-sidebar [(visible)]="showSidebar2" [pageElem]="page" [configureable]="true" position="right">
+<app-cc-sidebar [(visible)]="showSidebarRight" [pageElem]="page" [configureable]="true" position="right">
   <h3>Right Sidebar</h3>
 </app-cc-sidebar>
 
 <div id="myPage" #page>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <button (click)="show()">Show Left Sidebar</button>&nbsp;
-  <button (click)="show2()">Show Right Sidebar</button>
+  <button (click)="showLeft()">Show Left Sidebar</button>&nbsp;
+  <button (click)="showRight()">Show Right Sidebar</button>
 </div>

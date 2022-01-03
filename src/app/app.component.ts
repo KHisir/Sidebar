@@ -7,14 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cc-sidebar';
-  showSidebar: boolean = false;
-  showSidebar2: boolean = false;
+  showSidebarLeft: boolean = false;
+  showSidebarRight: boolean = false;
 
-  show(): void {
-    this.showSidebar = true
+  showLeft(): void {
+    this.showSidebarLeft = true
   }
 
-  show2(): void {
-    this.showSidebar2 = true
+  showRight(): void {
+    this.showSidebarRight = true
   }
 }
